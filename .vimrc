@@ -3,6 +3,7 @@ syntax on
 " Turn on smart auto-indentation
 set autoindent
 set smartindent
+set cindent
 filetype plugin indent on
 " Turn on auto-backup before editing
 set backup
@@ -24,7 +25,7 @@ set title
 
 
 " uncomment to turn on line number
-" set number
+set number relativenumber
 
 " vim is optimized for keyboard-only, but if you insist on using mouse,
 " uncomment the following
@@ -41,8 +42,8 @@ set showcmd
 " set hlsearch 
 " set confirm 
 set visualbell 
-" set ignorecase 
-" set smartcase
+set ignorecase 
+set smartcase
 
 " The following should give 16 colors on old Windows machine
 "set t_AB=[%?%p1%{8}%<%t%p1%{40}%+%e%p1%{92}%+%;%dm
@@ -58,9 +59,12 @@ set t_kb=
 " For students who are used to using the psvm/sout/sop abbreviation, you can
 " uncomment the following.
 "
-abbr psvm public static void main(String[] args){<CR>}<esc>O
+abbr psvm public static void main(String[] args){<cr><bs>
 abbr sout System.out.println("");<esc>2hi
 abbr sop System.out.print("");<esc>2hi
+abbr sfm String s = String.format("");<cr>System.out.println(s);<esc>k$2hi
+abbr tostr @Override<cr>public String toString(){<cr><bs>
+abbr filbs Filbert (Group 12E)<esc>
 
 "" PLUGINS
 " vim-rainbow
@@ -69,3 +73,7 @@ abbr sop System.out.print("");<esc>2hi
 " For lightline
 set laststatus=2
 let g:lightline = { 'colorscheme': 'jellybeans' }
+
+" For delimitmate
+let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1  
