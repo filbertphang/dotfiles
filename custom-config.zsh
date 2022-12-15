@@ -12,6 +12,16 @@ alias ke="kubectl exec -n airflow -it"
 alias ls="lsd -l"
 alias tree="lsd --tree"
 alias dc="docker-compose"
+alias dotfiles="code ~/dotfiles"
+alias vim="nvim"
+alias vv="vim ~/.vimrc"
+alias psql="sudo -u postgres psql"
+alias jks="bundle exec jekyll serve --force-polling"
+
+# advent of code
+alias s1="g++ sol1.cpp -o sol1 && ./sol1 < input"
+alias s2="g++ sol2.cpp -o sol2 && ./sol2 < input"
+alias day='/mnt/c/Users/filbert/Documents/NUS/Year\ 2/aoc22/tool/setupDay.sh'
 
 # man page coloring
 export LESS_TERMCAP_mb=$'\e[1;32m'
