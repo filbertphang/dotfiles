@@ -3,3 +3,6 @@
 	name = filbert
 [init]
 	defaultBranch = main
+	
+[core]
+	editor = vim

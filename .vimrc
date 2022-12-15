@@ -23,13 +23,13 @@ set listchars=tab:▸\ ,eol:¬
 
 " editing
 syntax on
+set autoindent
 filetype plugin indent on
-set autoindent smartindent
+:set guicursor=i:block
 
 " backups and undos
 set backup
 set backupdir=~/.backup
-" set undofile
 
 " tab settings
 set shiftwidth=2
@@ -48,16 +48,19 @@ set background=dark
 color Atelier_HeathDark
 
 " other keybinds
-nnoremap <leader>a ea
+nnoremap <space> <C-w>
 
 " abbreviations
-abbr psvm public static void main(String[] args){<cr><bs>
-abbr sout System.out.println("");<esc>2hi
-abbr sop System.out.print("");<esc>2hi
-abbr sfm String s = String.format("");<cr>System.out.println(s);<esc>k$2hi
-abbr tostr @Override<cr>public String toString(){<cr><bs>
+" java
+iabbr psvm public static void main(String[] args){<cr><bs><space>
+iabbr sout System.out.println("");<esc>2hi
+iabbr sop System.out.print("");<esc>2hi
+iabbr sfm String s = String.format("");<cr>System.out.println(s);<esc>k$2hi
+iabbr tostr @Override<cr>public String toString(){<cr>
+" python
+iabbr inem if __name__ == "__main__":<cr>main()<cr><esc>
 
-"" PLUGINS
+" plugins config
 " vim-rainbow
 " let g:rainbow_active = 1
 
@@ -86,11 +89,33 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
-" plugins
+" install plugins
+function! Cond(cond, ...)
+  let opts = get(a:000, 0, {})
+  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
+endfunction
+
 call plug#begin()
-Plug 'flazz/vim-colorschemes'
-Plug 'itchyny/lightline.vim'
-Plug 'Raimondi/delimitMate'
-Plug 'skywind3000/asynctasks.vim'
-Plug 'skywind3000/asyncrun.vim'
+Plug 'flazz/vim-colorschemes', Cond(!exists('g:vscode'))
+Plug 'itchyny/lightline.vim', Cond(!exists('g:vscode'))
+Plug 'Raimondi/delimitMate', Cond(!exists('g:vscode'))
+Plug 'skywind3000/asynctasks.vim', Cond(!exists('g:vscode'))
+Plug 'skywind3000/asyncrun.vim', Cond(!exists('g:vscode'))
 call plug#end()
+
+" clipboard (neovim)
+let g:clipboard = {
+                \   'name': 'WslClipboard',
+                \   'copy': {
+                \      '+': 'clip.exe',
+                \      '*': 'clip.exe',
+                \    },
+                \   'paste': {
+                \      '+': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+                \      '*': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+                \   },
+                \   'cache_enabled': 0,
+                \ }
+noremap <leader>y "+y
+noremap <leader>p "+p"
+
