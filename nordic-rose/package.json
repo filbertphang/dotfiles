@@ -1,0 +1,21 @@
+{
+  "name": "nordic-rose",
+  "displayName": "nordic-rose",
+  "description": "A modified version of nordic-vscode",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Nordic Rose",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Nordic Rose-color-theme.json"
+      }
+    ]
+  }
+}
