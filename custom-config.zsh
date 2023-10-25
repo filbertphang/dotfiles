@@ -2,11 +2,11 @@
 alias k=kubectl
 
 # airflow aliases
-alias kl="kubectl logs -n airflow"
-alias kgp="kubectl get pods -n airflow"
-alias kdp="kubectl describe pod -n airflow"
-alias kdlp="kubectl delete pod -n airflow"
-alias ke="kubectl exec -n airflow -it"
+alias kl="kubectl logs -n default"
+alias kgp="kubectl get pods -n default"
+alias kdp="kubectl describe pod -n default"
+alias kdlp="kubectl delete pod -n default"
+alias ke="kubectl exec -n default -it"
 
 # other tools
 alias ls="lsd -l"
@@ -54,3 +54,7 @@ if [[ -z $SSH_AGENT_SOCK ]]; then
   eval "$(ssh-agent -s)" > /dev/null
   ssh-add ~/.ssh/github_rsa 2> /dev/null
 fi
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

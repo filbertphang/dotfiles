@@ -10,16 +10,13 @@ noremap ;; ;
 set nocompatible
 set title
 set number relativenumber
-set ruler 
-set showcmd 
-set wildmenu 
-set visualbell 
+set ruler
+set showcmd
+set wildmenu
+set visualbell
 set ttyfast
 set wrap
 set linebreak
-set colorcolumn=88
-set list
-set listchars=tab:▸\ ,eol:¬
 
 " editing
 syntax on
@@ -45,7 +42,6 @@ nnoremap <leader><space> :noh<cr>
 " themes
 set termguicolors
 set background=dark
-color Atelier_HeathDark
 
 " other keybinds
 nnoremap <space> <C-w>
@@ -59,10 +55,10 @@ iabbr sfm String s = String.format("");<cr>System.out.println(s);<esc>k$2hi
 iabbr tostr @Override<cr>public String toString(){<cr>
 " python
 iabbr inem if __name__ == "__main__":<cr>main()<cr><esc>
+" vim stuff
+iabbr condvsc Cond(!exists('g:vscode'))
 
 " plugins config
-" vim-rainbow
-" let g:rainbow_active = 1
 
 " lightline
 set laststatus=2
@@ -77,11 +73,16 @@ let g:asyncrun_open = 6
 noremap <silent><f5> :AsyncTask file-run<cr>
 noremap <silent><f9> :AsyncTask file-build<cr>
 
+" telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 " install plug if not found
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
 " run pluginstall if there are missing plugins
@@ -101,7 +102,17 @@ Plug 'itchyny/lightline.vim', Cond(!exists('g:vscode'))
 Plug 'Raimondi/delimitMate', Cond(!exists('g:vscode'))
 Plug 'skywind3000/asynctasks.vim', Cond(!exists('g:vscode'))
 Plug 'skywind3000/asyncrun.vim', Cond(!exists('g:vscode'))
+Plug 'nvim-lua/plenary.nvim', Cond(!exists('g:vscode'))
+Plug 'nvim-telescope/telescope.nvim', Cond(!exists('g:vscode'))
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'wellle/targets.vim'
 call plug#end()
+
+if !exists('g:vscode') 
+  set colorcolumn=88
+  colorscheme Atelier_HeathDark
+end
 
 " clipboard (neovim)
 let g:clipboard = {
@@ -118,4 +129,3 @@ let g:clipboard = {
                 \ }
 noremap <leader>y "+y
 noremap <leader>p "+p"
-

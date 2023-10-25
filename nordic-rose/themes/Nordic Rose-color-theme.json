@@ -123,7 +123,7 @@
       "name": "Comment Markup Link",
       "scope": "comment markup.link",
       "settings": {
-        "foreground": "#4c566a"
+        "foreground": "#657085"
       }
     },
     {
@@ -1706,7 +1706,7 @@
         "beginning.punctuation.definition.list.markdown.xi"
       ],
       "settings": {
-        "foreground": "#4c566a"
+        "foreground": "#657085"
       }
     },
     {
@@ -1751,7 +1751,7 @@
         "punctuation.definition.tag.xi"
       ],
       "settings": {
-        "foreground": "#4c566a"
+        "foreground": "#657085"
       }
     },
     {
@@ -1790,14 +1790,14 @@
       "scope": "comment, punctuation.definition.comment",
       "settings": {
         "fontStyle": "italic",
-        "foreground": "#4c566a"
+        "foreground": "#657085"
       }
     },
     {
       "name": "[VSCODE-CUSTOM] Markdown Quote",
       "scope": "markup.quote.markdown",
       "settings": {
-        "foreground": "#4c566a"
+        "foreground": "#657085"
       }
     },
     {
@@ -2013,9 +2013,11 @@
     "tab.inactiveForeground": "#ffffff80",
     "tab.hoverBackground": "#303749",
     "tab.hoverBorder": "#f2a9a9",
-    "scrollbarSlider.background": "#353d4c",
-    "scrollbarSlider.hoverBackground": "#3d4451",
-    "scrollbarSlider.activeBackground": "#4b525e",
+    // "scrollbarSlider.background": "#353d4c",
+    "scrollbarSlider.background": "#717e96c1",
+    "scrollbarSlider.hoverBackground": "#8b95a7e2",
+    "scrollbarSlider.activeBackground": "#707785e2",
+    // "scrollbarSlider.activeBackground": "#4b525e",
     "progressBar.background": "#d48993",
     "widget.shadow": "#0000005c",
     "editorWidget.foreground": "#cccccc",
