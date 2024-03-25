@@ -26,6 +26,9 @@ alias s2="g++ sol2.cpp -o sol2 && ./sol2 < input"
 alias t2="g++ sol2.cpp -o sol2 && ./sol2 < test"
 alias day='/mnt/c/Users/filbert/Documents/NUS/Year\ 2/aoc22/tool/setupDay.sh'
 
+# haskell
+alias gen-hie="/home/filbert/.local/bin/gen-hie"
+
 # cs2103t
 alias duke="javac -d bin src/main/**/*.java && java -cp bin duke.Duke"
 

@@ -1,3 +1,5 @@
+# DEPRECATED: refer to custom-config.zsh
+
 # kubectl aliases
 alias k=kubectl
 
@@ -7,6 +9,9 @@ alias kgp="kubectl get pods -n airflow"
 alias kdp="kubectl describe pod -n airflow"
 alias kdlp="kubectl delete pod -n airflow"
 alias ke="kubectl exec -n airflow -it"
+
+# haskell aliases
+alias genhie="/home/filbert/.local/bin/gen-hie"
 
 # other tools
 alias ls="lsd -l"
