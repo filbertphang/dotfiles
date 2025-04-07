@@ -107,12 +107,19 @@ Plug 'nvim-telescope/telescope.nvim', Cond(!exists('g:vscode'))
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'wellle/targets.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'bkad/CamelCaseMotion'
+Plug 'jlapolla/vim-coq-plugin', Cond(!exists('g:vscode'))
 call plug#end()
 
+" things for non-vscode
 if !exists('g:vscode') 
   set colorcolumn=88
   colorscheme Atelier_HeathDark
 end
+
+" things for vscode
+set cmdheight=3
 
 " clipboard (neovim)
 let g:clipboard = {
@@ -129,3 +136,21 @@ let g:clipboard = {
                 \ }
 noremap <leader>y "+y
 noremap <leader>p "+p"
+
+" easymotion
+nnoremap <leader><leader>f f
+nnoremap <leader><leader>F F
+nnoremap f <Plug>(easymotion-f)
+nnoremap F <Plug>(easymotion-F)
+nnoremap <space> <Plug>(easymotion-s2)
+let g:EasyMotion_prompt = ""
+
+" camelcase motion
+let g:camelcasemotion_key = '<leader>'
+
+" vimdiff
+set diffopt+=algorithm:patience
+set diffopt+=indent-heuristic
+
+" coq syntax highlighting
+autocmd BufNewFile,BufRead *.v set filetype=coq
