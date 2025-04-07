@@ -18,6 +18,12 @@ alias vv="vim ~/.vimrc"
 alias psql="sudo -u postgres psql"
 alias jks="bundle exec jekyll serve --force-polling"
 alias cat="batcat"
+alias cdf='cd "$(lsd -d */ | fzf)"'
+alias el='emacs -nw'
+alias vimdiff='nvim -d'
+alias vd='vimdiff'
+alias gd='git difftool'
+
 
 # advent of code
 alias s1="g++ sol1.cpp -o sol1 && ./sol1 < input"
@@ -25,12 +31,6 @@ alias t1="g++ sol1.cpp -o sol1 && ./sol1 < test"
 alias s2="g++ sol2.cpp -o sol2 && ./sol2 < input"
 alias t2="g++ sol2.cpp -o sol2 && ./sol2 < test"
 alias day='/mnt/c/Users/filbert/Documents/NUS/Year\ 2/aoc22/tool/setupDay.sh'
-
-# haskell
-alias gen-hie="/home/filbert/.local/bin/gen-hie"
-
-# cs2103t
-alias duke="javac -d bin src/main/**/*.java && java -cp bin duke.Duke"
 
 # man page coloring
 export LESS_TERMCAP_mb=$'\e[1;32m'
@@ -42,7 +42,8 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 # PATH modifications
-export PATH="$PATH:/home/filbert/.local/bin" # for haskell packages
+export PATH=":/home/filbert/.local/bin:$PATH" # for haskell packages
+export PATH=":/usr/local/texlive/2022/bin/x86_64-linux:$PATH" # for TeXLive
 
 # zsh autosuggestions style
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=241'

@@ -5,6 +5,11 @@
 	defaultBranch = main
 
 [core]
-	editor = vim
+	editor = nvim
 	whitespace = cr-at-eol
 	autocrlf = input
+[diff]
+	guitool = nvimdiff
+	tool = nvimdiff
+[difftool]
+  prompt = false
